@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVC Phonics Test</title>
+  <!-- Link to shared CSS -->
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <header>
+    <!-- Logo for CVC Phonics -->
+    <img src="../assets/logo-cvc.png" alt="Michael's CVC Phonics Logo">
+  </header>
+
+  <main>
+    <div id="quiz-container" class="quiz-container">
+      <!-- Level title (e.g. "Level A") -->
+      <h2 id="level-title"></h2>
+
+      <!-- Word display -->
+      <div id="word"
+           class="word-display"
+           style="font-size: 4rem; text-align: center; margin: 2rem 0;">
+      </div>
+
+      <!-- Yes / No buttons -->
+      <div style="display: flex; justify-content: center; gap: 1rem;">
+        <button id="yes-btn" class="btn">Yes</button>
+        <button id="no-btn"  class="btn">No</button>
+      </div>
+
+      <!-- Question counter -->
+      <div id="counter"
+           style="text-align: center; margin-top: 1.5rem; font-weight: 600;">
+      </div>
+    </div>
+
+    <!-- Container for result (score, certificate button, back link) -->
+    <div id="result-container"
+         style="text-align: center; margin-top: 2rem;">
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Michael's Phonics Hub
+  </footer>
+
+  <!-- Load the CVC quiz module -->
+  <script type="module" src="../scripts/cvc-app.js"></script>
+</body>
+</html>
