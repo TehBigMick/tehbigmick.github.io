@@ -1,4 +1,4 @@
-/* main.css */
+/* styles/main.css */
 
 /* Import KG Primary Penmanship font */
 @font-face {
@@ -32,7 +32,7 @@ body {
 }
 
 header {
-  background-color: #FAF4E8;
+  background-color: var(--white);
   padding: 1.5rem;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -58,6 +58,7 @@ main {
   gap: 2rem;
   width: 100%;
   max-width: 400px;
+  margin: 0 auto;
 }
 
 .btn {
@@ -75,6 +76,13 @@ main {
 
 .btn:hover {
   background-color: var(--primary-light);
+}
+
+/* Centre and unify both buttons in the result screen */
+#result-container .btn {
+  width: 200px;
+  max-width: 80%;
+  margin: 0.75rem auto;
 }
 
 footer {
