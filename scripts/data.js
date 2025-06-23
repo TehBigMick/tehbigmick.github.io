@@ -13,7 +13,7 @@ export const CVC_LEVELS = {
   "Level B": [
     "fox","hen","van","lid","jet","fin","zip","cob","mud","vet",
     "box","yak","wax","dip","rot","hug","tap","cot","ram","lap",
-    "den","bun","lab","pod","pod"
+    "den","bun","lab","pod","pot"
   ],
   "Level C": [
     "big","dig","fan","gap","leg","kid","mix","nod","pup","cub",
