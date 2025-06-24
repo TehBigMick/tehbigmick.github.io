@@ -42,18 +42,21 @@
       <!-- Draggable letter tiles will be injected here -->
       <section class="letters"></section>
 
-      <!-- Check button -->
-      <button id="check-btn" class="btn">Check Word</button>
+      <!-- Controls: Check and New Word -->
+      <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <button id="check-btn" class="btn">Check Word</button>
+        <button id="new-word-btn" class="btn">New Word</button>
+      </div>
 
       <!-- Feedback text (“Well done!” / “Try again!”) -->
-      <div id="feedback"></div>
+      <div id="feedback" style="margin-top:1rem;"></div>
 
       <!-- Image container: will show the image when guess is correct -->
-      <div id="image-container"></div>
+      <div id="image-container" style="margin-top:1rem;"></div>
 
       <!-- Navigation buttons -->
-      <div style="margin-top:2rem;">
-        <a href="builder.html" class="btn" style="margin-bottom:1rem;">Back to Levels</a>
+      <div style="margin-top:2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="builder.html" class="btn">Back to Levels</a>
         <a href="index.html" class="btn">Back to Learn</a>
       </div>
     </div>
@@ -65,3 +68,4 @@
   <script type="module" src="scripts/builder.js"></script>
 </body>
 </html>
+
