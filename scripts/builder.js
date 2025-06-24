@@ -8,68 +8,79 @@ const levelParam = getQueryParam('level');
 const levelPicker      = document.getElementById('level-picker');
 const gameContainer    = document.getElementById('game-container');
 const builderTitle     = document.getElementById('builder-title');
+const imageContainer   = document.getElementById('image-container');
 const slots            = document.querySelectorAll('.slot');
 const lettersContainer = document.querySelector('.letters');
 const checkBtn         = document.getElementById('check-btn');
 const newWordBtn       = document.getElementById('new-word-btn');
 const feedback         = document.getElementById('feedback');
-const imageContainer   = document.getElementById('image-container');
 
 let currentWord = '';
 
-// Show level picker or game UI based on query param
+// On load: decide whether to show level picker or start game
 if (!levelParam || !CVC_LEVELS[levelParam]) {
+  // Show level picker
   levelPicker.style.display   = 'block';
   gameContainer.style.display = 'none';
 } else {
+  // Start game for chosen level
   levelPicker.style.display   = 'none';
   gameContainer.style.display = 'block';
   startGame(levelParam);
 }
 
 /**
- * Initialise a new round for the chosen level
+ * Initialise a new round for the chosen level.
+ * Picks a random word, shows its image prompt, shuffles letters and renders tiles.
  */
 function startGame(level) {
-  // Set title
+  // Display level title
   builderTitle.textContent = level;
 
   // Clear feedback
-  feedback.textContent     = '';
+  feedback.textContent = '';
 
-  // Clear slots
+  // Clear any existing slot letters
   slots.forEach(slot => slot.textContent = '');
 
-  // Pick a random word from the level
+  // Pick a random word from the level's 25-word list
   const words = CVC_LEVELS[level];
   currentWord = words[Math.floor(Math.random() * words.length)];
 
   // Show prompt image immediately
   showPromptImage(currentWord);
 
-  // Shuffle its letters and render draggable letter tiles
-  const shuffled = shuffle(currentWord.split(''));
-  renderTiles(shuffled);
+  // Shuffle its letters and render draggable tiles
+  const shuffledLetters = shuffle(currentWord.split(''));
+  renderTiles(shuffledLetters);
 }
 
 /**
- * Display the prompt image for the current word
+ * Display the prompt image for the given word.
+ * Attempts WebP first, falls back to PNG if WebP not found.
  */
 function showPromptImage(word) {
-  // Construct path: adjust extension as needed (.webp/.png)
+  // Clear previous image
+  imageContainer.innerHTML = '';
+
   const img = document.createElement('img');
   img.src = `../assets/images/${word}.webp`;
   img.alt = word;
-  // Optional fallback if webp missing:
+  img.onload = () => {
+    // Image loaded successfully; nothing else needed
+  };
   img.onerror = () => {
-    console.warn(`Prompt image not found: ${img.src}, trying PNG fallback.`);
+    // Fallback to PNG if WebP missing
+    console.warn(`Prompt image not found at ${img.src}, trying PNG fallback.`);
     img.src = `../assets/images/${word}.png`;
   };
-  // Clear and append
-  imageContainer.innerHTML = '';
+  // Append to container
   imageContainer.appendChild(img);
 }
 
+/**
+ * Render draggable letter tiles given an array of letters.
+ */
 function renderTiles(letters) {
   lettersContainer.innerHTML = '';
   letters.forEach(letter => {
@@ -84,7 +95,7 @@ function renderTiles(letters) {
   });
 }
 
-// Set up drop slots
+// Set up drop behaviour for each slot
 slots.forEach(slot => {
   slot.addEventListener('dragover', e => e.preventDefault());
   slot.addEventListener('drop', e => {
@@ -94,21 +105,18 @@ slots.forEach(slot => {
   });
 });
 
-// “Check Word” logic: we leave the prompt image visible;
-// optionally add a border or highlight on correct.
+// “Check Word” logic: compare assembled letters to currentWord
 checkBtn.addEventListener('click', () => {
   const guess = Array.from(slots).map(s => s.textContent).join('');
   if (guess === currentWord) {
     feedback.textContent = 'Well done!';
-    // Optionally highlight the image or slots:
-    // e.g., add a CSS class to imageContainer or slots to indicate success
-    // imageContainer.querySelector('img')?.classList.add('correct-highlight');
+    // Optionally, you can highlight slots or image to indicate success
   } else {
     feedback.textContent = 'Try again!';
   }
 });
 
-// “New Word” logic: reset for another random word
+// “New Word” logic: start a new round with a different random word in the same level
 newWordBtn.addEventListener('click', () => {
   if (levelParam && CVC_LEVELS[levelParam]) {
     startGame(levelParam);
