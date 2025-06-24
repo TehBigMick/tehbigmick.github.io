@@ -1,69 +1,92 @@
 // learn/scripts/builder.js
 
-const validWords = [
-  { word: 'cat', image: '../assets/images/cat.png' },
-  { word: 'dog', image: '../assets/images/dog.png' },
-  { word: 'bat', image: '../assets/images/bat.png' },
-  { word: 'hat', image: '../assets/images/hat.png' }
-];
-let currentWord, shuffledLetters;
+import { CVC_LEVELS } from '../scripts/data.js';
+import { getQueryParam, shuffle } from '../scripts/utils.js';
 
-// 1. Pick a random word and shuffle its letters
-function pickWord() {
-  const choice = validWords[Math.floor(Math.random() * validWords.length)];
-  currentWord = choice.word;
-  shuffledLetters = choice.word.split('').sort(() => 0.5 - Math.random());
-  return choice;
+const levelParam = getQueryParam('level');
+
+const levelPicker    = document.getElementById('level-picker');
+const gameContainer  = document.getElementById('game-container');
+const builderTitle   = document.getElementById('builder-title');
+const slots          = document.querySelectorAll('.slot');
+const lettersContainer = document.querySelector('.letters');
+const checkBtn       = document.getElementById('check-btn');
+const feedback       = document.getElementById('feedback');
+const imageContainer = document.getElementById('image-container');
+
+let currentWord = '';
+
+// Show either the level picker or the game area
+if (!levelParam || !CVC_LEVELS[levelParam]) {
+  levelPicker.style.display   = 'block';
+  gameContainer.style.display = 'none';
+} else {
+  levelPicker.style.display   = 'none';
+  gameContainer.style.display = 'block';
+  startGame(levelParam);
 }
 
-// 2. Render the draggable letter tiles
-function setupTiles() {
-  const container = document.querySelector('.letters');
-  container.innerHTML = '';
-  shuffledLetters.forEach(letter => {
+/**
+ * Initialise a new round for the chosen level
+ */
+function startGame(level) {
+  // Set title
+  builderTitle.textContent = level;
+
+  // Clear feedback and image
+  feedback.textContent       = '';
+  imageContainer.innerHTML   = '';
+
+  // Clear slot contents
+  slots.forEach(slot => slot.textContent = '');
+
+  // Pick a random word from the level
+  const words = CVC_LEVELS[level];
+  currentWord = words[Math.floor(Math.random() * words.length)];
+
+  // Shuffle its letters
+  const shuffled = shuffle(currentWord.split(''));
+
+  // Render draggable letter tiles
+  renderTiles(shuffled);
+}
+
+/**
+ * Render the draggable letter tiles
+ */
+function renderTiles(letters) {
+  lettersContainer.innerHTML = '';
+  letters.forEach(letter => {
     const tile = document.createElement('div');
-    tile.className = 'tile';
-    tile.draggable = true;
+    tile.className   = 'tile';
     tile.textContent = letter;
+    tile.draggable   = true;
     tile.addEventListener('dragstart', e => {
       e.dataTransfer.setData('text/plain', letter);
     });
-    container.appendChild(tile);
+    lettersContainer.appendChild(tile);
   });
 }
 
-// 3. Setup drop slots
-function initSlots() {
-  document.querySelectorAll('.slot').forEach(slot => {
-    slot.addEventListener('dragover', e => e.preventDefault());
-    slot.addEventListener('drop', e => {
-      e.preventDefault();
-      const letter = e.dataTransfer.getData('text/plain');
-      e.target.textContent = letter;
-    });
+// Set up each drop slot
+slots.forEach(slot => {
+  slot.addEventListener('dragover', e => e.preventDefault());
+  slot.addEventListener('drop',     e => {
+    e.preventDefault();
+    const letter = e.dataTransfer.getData('text/plain');
+    e.target.textContent = letter;
   });
-}
+});
 
-// 4. Check answer
-function checkWord() {
-  const guess = [...document.querySelectorAll('.slot')]
-    .map(s => s.textContent).join('');
-  const feedback = document.getElementById('feedback');
-  const imageEl = document.getElementById('image-container');
-  const match = validWords.find(w => w.word === guess);
-
-  if (match) {
+// Check the assembled word when button clicked
+checkBtn.addEventListener('click', () => {
+  const guess = Array.from(slots).map(s => s.textContent).join('');
+  if (guess === currentWord) {
     feedback.textContent = 'Well done!';
-    imageEl.innerHTML = `<img src="${match.image}" alt="${match.word}">`;
+    // Show matching image from assets/images/<word>.png
+    imageContainer.innerHTML = `<img src="../assets/images/${currentWord}.png" alt="${currentWord}">`;
   } else {
-    feedback.textContent = 'Try again!';
-    imageEl.innerHTML = '';
+    feedback.textContent     = 'Try again!';
+    imageContainer.innerHTML = '';
   }
-}
-
-// 5. Initialise on load
-const wordData = pickWord();
-setupTiles();
-initSlots();
-document.getElementById('check-btn')
-  .addEventListener('click', checkWord);
+});
