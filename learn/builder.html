@@ -4,14 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Build CVC Words</title>
-  <!-- Shared site CSS -->
   <link rel="stylesheet" href="../styles/main.css">
-  <!-- Builder-specific CSS -->
   <link rel="stylesheet" href="styles/builder.css">
 </head>
 <body>
   <header>
-    <!-- Learn section logo -->
     <img src="../assets/logo-learn.webp" alt="Michael's Phonics Hub – Learning">
   </header>
 
@@ -32,6 +29,9 @@
       <!-- Title showing chosen level -->
       <h2 id="builder-title"></h2>
 
+      <!-- Image prompt: show immediately under title -->
+      <div id="image-container" style="margin:1rem auto;"></div>
+
       <!-- Slots for the three letters -->
       <section class="slots">
         <div class="slot" data-index="0"></div>
@@ -51,9 +51,6 @@
       <!-- Feedback text (“Well done!” / “Try again!”) -->
       <div id="feedback" style="margin-top:1rem;"></div>
 
-      <!-- Image container: will show the image when guess is correct -->
-      <div id="image-container" style="margin-top:1rem;"></div>
-
       <!-- Navigation buttons -->
       <div style="margin-top:2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
         <a href="builder.html" class="btn">Back to Levels</a>
@@ -64,7 +61,6 @@
 
   <footer>&copy; 2025 Michael's Phonics Hub</footer>
 
-  <!-- Builder logic as ES module -->
   <script type="module" src="scripts/builder.js"></script>
 </body>
 </html>
