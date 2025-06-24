@@ -38,7 +38,7 @@ h2#builder-title {
   user-select: none;
 }
 
-/* Letters container for draggable tiles */
+/* Letters container for draggable/tappable tiles */
 .letters {
   display: flex;
   justify-content: center;
@@ -47,7 +47,7 @@ h2#builder-title {
   margin-bottom: 1.5rem;
 }
 
-/* Draggable letter tile */
+/* Draggable/tappable letter tile */
 .tile {
   width: 70px;
   height: 70px;
@@ -62,6 +62,11 @@ h2#builder-title {
   user-select: none;
 }
 
+/* Visual indicator for selected tile on touch */
+.tile.selected {
+  outline: 3px solid #FFD700; /* adjust colour as desired */
+}
+
 /* Uniform button size for builder page */
 /* Applies to buttons and links with class 'btn' inside builder UI */
 #game-container .btn,
@@ -69,6 +74,7 @@ h2#builder-title {
 #game-container a.btn {
   min-width: 140px;
   padding: 0.75rem 1rem;
+  text-align: center;
 }
 
 /* Centre controls container */
@@ -121,5 +127,12 @@ h2#builder-title {
     min-width: 100px;
     padding: 0.5rem 0.75rem;
     font-size: 0.9rem;
+  }
+}
+
+/* Optional: change cursor on touch devices */
+@media (hover: none) {
+  .tile {
+    cursor: pointer;
   }
 }
