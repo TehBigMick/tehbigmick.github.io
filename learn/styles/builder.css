@@ -1,0 +1,43 @@
+/* learn/styles/builder.css */
+
+.slots {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.slot {
+  width: 80px; height: 80px;
+  border: 2px dashed var(--primary);
+  margin: 0 1rem;
+  font-size: 2rem;
+  line-height: 80px;
+  background: white;
+  text-align: center;
+}
+.letters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.tile {
+  width: 60px; height: 60px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 2rem;
+  line-height: 60px;
+  border-radius: 10px;
+  cursor: grab;
+  user-select: none;
+}
+#check-btn {
+  margin-top: 2rem;
+}
+#feedback {
+  margin-top: 1.5rem;
+  font-weight: bold;
+}
+#image-container img {
+  margin-top: 1rem;
+  max-width: 200px;
+}
