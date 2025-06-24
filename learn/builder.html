@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Build CVC Words</title>
+  <!-- Shared site CSS -->
   <link rel="stylesheet" href="../styles/main.css">
+  <!-- Builder-specific CSS -->
   <link rel="stylesheet" href="styles/builder.css">
 </head>
 <body>
@@ -18,32 +20,48 @@
     <div id="level-picker" style="text-align:center; margin:2rem 0;">
       <h2>Select Level</h2>
       <div class="grid" style="max-width:400px; margin:1rem auto;">
-        <a href="?level=Level%20A" class="btn">Level A</a>
-        <a href="?level=Level%20B" class="btn">Level B</a>
-        <a href="?level=Level%20C" class="btn">Level C</a>
-        <a href="?level=Level%20D" class="btn">Level D</a>
+        <a href="builder.html?level=Level%20A" class="btn">Level A</a>
+        <a href="builder.html?level=Level%20B" class="btn">Level B</a>
+        <a href="builder.html?level=Level%20C" class="btn">Level C</a>
+        <a href="builder.html?level=Level%20D" class="btn">Level D</a>
       </div>
     </div>
 
-    <!-- Game UI (hidden until level chosen) -->
-    <div id="game-container" style="display:none;">
+    <!-- Game UI: hidden until a valid level is selected -->
+    <div id="game-container" style="display:none; text-align:center;">
+      <!-- Title showing chosen level -->
       <h2 id="builder-title"></h2>
+
+      <!-- Slots for the three letters -->
       <section class="slots">
         <div class="slot" data-index="0"></div>
         <div class="slot" data-index="1"></div>
         <div class="slot" data-index="2"></div>
       </section>
+
+      <!-- Draggable letter tiles will be injected here -->
       <section class="letters"></section>
+
+      <!-- Check button -->
       <button id="check-btn" class="btn">Check Word</button>
+
+      <!-- Feedback text (“Well done!” / “Try again!”) -->
       <div id="feedback"></div>
+
+      <!-- Image container: will show the image when guess is correct -->
       <div id="image-container"></div>
-      <a href="builder.html" class="btn" style="margin-top:2rem;">Back to Levels</a>
-      <a href="../index.html" class="btn" style="margin-top:1rem;">Back to Learn</a>
+
+      <!-- Navigation buttons -->
+      <div style="margin-top:2rem;">
+        <a href="builder.html" class="btn" style="margin-bottom:1rem;">Back to Levels</a>
+        <a href="index.html" class="btn">Back to Learn</a>
+      </div>
     </div>
   </main>
 
   <footer>&copy; 2025 Michael's Phonics Hub</footer>
 
+  <!-- Builder logic as ES module -->
   <script type="module" src="scripts/builder.js"></script>
 </body>
 </html>
