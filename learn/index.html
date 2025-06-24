@@ -3,17 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learning Tools – Michael's Phonics Hub</title>
+  <title>Learning Activities – Michael's Phonics Hub</title>
   <link rel="stylesheet" href="../styles/main.css">
+  <style>
+    /* If you want additional styling specific to this page: */
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* background, padding, etc., come from main.css */
+    }
+    header h1 {
+      margin-top: 0.5rem;
+      font-size: 1.75rem;
+      color: var(--text-dark);
+    }
+    main h1.page-title {
+      display: none; /* not used since title is in header */
+    }
+  </style>
 </head>
 <body>
   <header>
-    <!-- Learn page logo -->
+    <!-- Learn section logo -->
     <img src="../assets/logo-learn.webp" alt="Michael's Phonics Hub – Learning">
+    <!-- Centre the page title in the header -->
+    <h1>Learning Activities</h1>
   </header>
 
   <main>
-    <h1>Learning Activities</h1>
+    <!-- We no longer need a separate <h1> here since it’s in header -->
     <div class="grid" style="max-width: 400px; margin: 2rem auto;">
       <a href="builder.html" class="btn">Interactive Word Builder</a>
       <!-- future games:
@@ -21,6 +40,7 @@
       <a href="memory.html" class="btn">Word-Picture Memory</a>
       -->
     </div>
+
     <a href="../index.html" class="btn" style="max-width:200px; margin:2rem auto; display:block;">
       Back to Home
     </a>
