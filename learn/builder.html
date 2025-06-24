@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn CVC Words</title>
+  <title>Build CVC Words</title>
   <link rel="stylesheet" href="../styles/main.css">
   <link rel="stylesheet" href="styles/builder.css">
 </head>
@@ -13,27 +13,35 @@
   </header>
 
   <main>
-    <h1>Build the Word!</h1>
+    <!-- Level Picker -->
+    <div id="level-picker" style="text-align:center; margin:2rem 0;">
+      <h2>Select Level</h2>
+      <div class="grid" style="max-width:400px; margin:1rem auto;">
+        <a href="?level=Level%20A" class="btn">Level A</a>
+        <a href="?level=Level%20B" class="btn">Level B</a>
+        <a href="?level=Level%20C" class="btn">Level C</a>
+        <a href="?level=Level%20D" class="btn">Level D</a>
+      </div>
+    </div>
 
-    <section class="slots">
-      <div class="slot" data-index="0"></div>
-      <div class="slot" data-index="1"></div>
-      <div class="slot" data-index="2"></div>
-    </section>
-
-    <section class="letters"></section>
-
-    <button id="check-btn" class="btn">Check Word</button>
-
-    <div id="feedback"></div>
-    <div id="image-container"></div>
-
-    <a href="../index.html" class="btn" style="margin-top:2rem">Back to Home</a>
+    <!-- Game UI (hidden until level chosen) -->
+    <div id="game-container" style="display:none;">
+      <h2 id="builder-title"></h2>
+      <section class="slots">
+        <div class="slot" data-index="0"></div>
+        <div class="slot" data-index="1"></div>
+        <div class="slot" data-index="2"></div>
+      </section>
+      <section class="letters"></section>
+      <button id="check-btn" class="btn">Check Word</button>
+      <div id="feedback"></div>
+      <div id="image-container"></div>
+      <a href="builder.html" class="btn" style="margin-top:2rem;">Back to Levels</a>
+      <a href="../index.html" class="btn" style="margin-top:1rem;">Back to Learn</a>
+    </div>
   </main>
 
-  <footer>
-    &copy; 2025 Michael's Phonics Hub
-  </footer>
+  <footer>&copy; 2025 Michael's Phonics Hub</footer>
 
   <script type="module" src="scripts/builder.js"></script>
 </body>
