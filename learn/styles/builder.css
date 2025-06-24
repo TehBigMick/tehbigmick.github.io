@@ -1,26 +1,43 @@
 /* learn/styles/builder.css */
 
+/* Title styling */
+h2#builder-title {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+}
+
+/* Slots container */
 .slots {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 }
+
+/* Each drop slot */
 .slot {
   width: 80px;
   height: 80px;
   border: 2px dashed var(--primary);
-  margin: 0 1rem;
+  margin: 0 0.5rem;
+  background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
+  font-size: 2rem;
+  user-select: none;
 }
+
+/* Letters container for draggable tiles */
 .letters {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }
+
+/* Draggable letter tile */
 .tile {
   width: 60px;
   height: 60px;
@@ -29,18 +46,48 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.8rem;
   border-radius: 10px;
   cursor: grab;
   user-select: none;
 }
-#check-btn {
-  margin-top: 2rem;
+
+/* Buttons in the builder: reliant on .btn from main.css; ensure minimum width */
+#check-btn, #new-word-btn {
+  min-width: 120px;
 }
+
+/* Feedback message */
 #feedback {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
+  color: var(--primary);
+}
+
+/* Prompt image container and image */
+#image-container {
+  margin-top: 1rem;
 }
 #image-container img {
-  margin-top: 1rem;
-  max-width: 200px;
+  max-width: 150px;
+  display: block;
+  margin: 0.5rem auto;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 480px) {
+  .slot {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  .tile {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  #image-container img {
+    max-width: 120px;
+  }
 }
