@@ -34,9 +34,8 @@ function startGame(level) {
   // Set title
   builderTitle.textContent = level;
 
-  // Clear feedback and image
+  // Clear feedback
   feedback.textContent     = '';
-  imageContainer.innerHTML = '';
 
   // Clear slots
   slots.forEach(slot => slot.textContent = '');
@@ -45,16 +44,32 @@ function startGame(level) {
   const words = CVC_LEVELS[level];
   currentWord = words[Math.floor(Math.random() * words.length)];
 
-  // Shuffle its letters
-  const shuffled = shuffle(currentWord.split(''));
+  // Show prompt image immediately
+  showPromptImage(currentWord);
 
-  // Render draggable letter tiles
+  // Shuffle its letters and render draggable letter tiles
+  const shuffled = shuffle(currentWord.split(''));
   renderTiles(shuffled);
 }
 
 /**
- * Render the draggable letter tiles
+ * Display the prompt image for the current word
  */
+function showPromptImage(word) {
+  // Construct path: adjust extension as needed (.webp/.png)
+  const img = document.createElement('img');
+  img.src = `../assets/images/${word}.webp`;
+  img.alt = word;
+  // Optional fallback if webp missing:
+  img.onerror = () => {
+    console.warn(`Prompt image not found: ${img.src}, trying PNG fallback.`);
+    img.src = `../assets/images/${word}.png`;
+  };
+  // Clear and append
+  imageContainer.innerHTML = '';
+  imageContainer.appendChild(img);
+}
+
 function renderTiles(letters) {
   lettersContainer.innerHTML = '';
   letters.forEach(letter => {
@@ -69,7 +84,7 @@ function renderTiles(letters) {
   });
 }
 
-// Set up each drop slot
+// Set up drop slots
 slots.forEach(slot => {
   slot.addEventListener('dragover', e => e.preventDefault());
   slot.addEventListener('drop', e => {
@@ -79,24 +94,17 @@ slots.forEach(slot => {
   });
 });
 
-// “Check Word” logic
+// “Check Word” logic: we leave the prompt image visible;
+// optionally add a border or highlight on correct.
 checkBtn.addEventListener('click', () => {
   const guess = Array.from(slots).map(s => s.textContent).join('');
   if (guess === currentWord) {
     feedback.textContent = 'Well done!';
-    // Display image (WebP); adjust extension or add fallback as needed
-    const img = document.createElement('img');
-    img.src = `../assets/images/${currentWord}.webp`;
-    img.alt = currentWord;
-    img.onerror = () => {
-      // Optional fallback to PNG if WebP missing
-      img.src = `../assets/images/${currentWord}.png`;
-    };
-    imageContainer.innerHTML = '';
-    imageContainer.appendChild(img);
+    // Optionally highlight the image or slots:
+    // e.g., add a CSS class to imageContainer or slots to indicate success
+    // imageContainer.querySelector('img')?.classList.add('correct-highlight');
   } else {
-    feedback.textContent     = 'Try again!';
-    imageContainer.innerHTML = '';
+    feedback.textContent = 'Try again!';
   }
 });
 
