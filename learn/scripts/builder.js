@@ -1,7 +1,7 @@
 // learn/scripts/builder.js
 
-import { CVC_LEVELS } from '../scripts/data.js';
-import { getQueryParam, shuffle } from '../scripts/utils.js';
+import { CVC_LEVELS } from '../../scripts/data.js';
+import { getQueryParam, shuffle } from '../../scripts/utils.js';
 
 const levelParam = getQueryParam('level');
 
@@ -65,7 +65,6 @@ checkBtn.addEventListener('click', () => {
   const guess = Array.from(slots).map(s => s.textContent).join('');
   if (guess === currentWord) {
     feedback.textContent = 'Well done!';
-    // Use WebP images for speed:
     imageContainer.innerHTML = `<img src="../assets/images/${currentWord}.webp" alt="${currentWord}">`;
   } else {
     feedback.textContent     = 'Try again!';
