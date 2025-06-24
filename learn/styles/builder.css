@@ -1,10 +1,20 @@
 /* learn/styles/builder.css */
 
-/* Title styling */
+/* Level title styling */
 h2#builder-title {
   margin-top: 1rem;
   font-size: 1.5rem;
   color: var(--text-dark);
+}
+
+/* Prompt image container */
+#image-container {
+  margin-top: 1rem;
+}
+#image-container img {
+  max-width: 150px;
+  display: block;
+  margin: 0.5rem auto;
 }
 
 /* Slots container */
@@ -39,22 +49,36 @@ h2#builder-title {
 
 /* Draggable letter tile */
 .tile {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   background: var(--primary);
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   border-radius: 10px;
   cursor: grab;
   user-select: none;
 }
 
-/* Buttons in the builder: reliant on .btn from main.css; ensure minimum width */
-#check-btn, #new-word-btn {
-  min-width: 120px;
+/* Uniform button size for builder page */
+/* Applies to buttons and links with class 'btn' inside builder UI */
+#game-container .btn,
+#level-picker .btn,
+#game-container a.btn {
+  min-width: 140px;
+  padding: 0.75rem 1rem;
+}
+
+/* Centre controls container */
+.controls,
+.nav-controls {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /* Feedback message */
@@ -65,14 +89,15 @@ h2#builder-title {
   color: var(--primary);
 }
 
-/* Prompt image container and image */
-#image-container {
-  margin-top: 1rem;
+/* Level picker adjustments */
+#level-picker h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
 }
-#image-container img {
-  max-width: 150px;
-  display: block;
-  margin: 0.5rem auto;
+#level-picker .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -83,11 +108,18 @@ h2#builder-title {
     font-size: 1.5rem;
   }
   .tile {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
   }
   #image-container img {
     max-width: 120px;
+  }
+  #game-container .btn,
+  #level-picker .btn,
+  #game-container a.btn {
+    min-width: 100px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
   }
 }
