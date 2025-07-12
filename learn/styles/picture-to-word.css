@@ -172,4 +172,37 @@ body {
     width: 100%;
     margin: 0.3rem 0;
   }
+/* Bubble-like back button style */
+.bubble-btn {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 2.5rem;
+  border: 2.5px solid #23405c;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  letter-spacing: 0.5px;
+  margin: 1.5rem 0 1rem 0;
+  cursor: pointer;
+  transition: background 0.18s, border 0.18s, color 0.18s, box-shadow 0.18s;
 }
+.bubble-btn:focus,
+.bubble-btn:hover {
+  background: var(--primary-light);
+  color: #fff;
+  border-color: var(--primary-light);
+  outline: none;
+  box-shadow: 0 4px 18px rgba(0,100,180,0.09);
+}
+
+/* Responsive tweak */
+@media (max-width: 600px) {
+  .bubble-btn {
+    width: 100%;
+    font-size: 1.03rem;
+    padding: 0.7rem 1rem;
+    margin-top: 1.2rem;
+  }
+}}
