@@ -1,4 +1,5 @@
-// Data for levels (as defined earlier, potentially imported or in the same file)
+// CVC Phonics Picture-Word Match Game JS
+
 const levels = {
   A: [
     { word: "cat", image: "/assets/images/cat.webp" },
@@ -50,7 +51,6 @@ const levels = {
   ]
 };
 
-// Get references to DOM elements
 const levelButtons = document.querySelectorAll('.level-btn');
 const levelSelectionScreen = document.getElementById('level-selection');
 const gameScreen = document.getElementById('game-screen');
@@ -59,63 +59,57 @@ const imageContainer = document.getElementById('image-container');
 const wordImage = document.getElementById('word-image');
 const optionsContainer = document.getElementById('options-container');
 const feedbackIcon = document.getElementById('feedback-icon');
+const resultScreen = document.getElementById('result-screen');
+const resultMessage = document.getElementById('result-message');
+const returnBtn = document.getElementById('return-btn');
 
 let currentLevel = null;
 let currentRoundIndex = 0;
 let currentLevelData = [];
 let correctWord = "";
+let score = 0;
+let answeredThisRound = false;
 
 // Function to start a level
 function startLevel(level) {
   currentLevel = level;
-  currentLevelData = [...levels[level]];  // clone the array to manipulate if needed
+  currentLevelData = [...levels[level]];
   currentRoundIndex = 0;
-  // Optionally shuffle the level array so rounds come in random order
-  shuffleArray(currentLevelData);
-  // Switch to game screen
+  score = 0;
   levelSelectionScreen.style.display = "none";
   gameScreen.style.display = "block";
+  resultScreen.style.display = "none";
   showRound();
 }
 
-// Function to display the current round (image and options)
+// Function to display the current round
 function showRound() {
-  // Reset any feedback/icon from previous round
+  answeredThisRound = false;
   imageContainer.classList.remove('correct', 'incorrect');
   feedbackIcon.style.display = "none";
-  // Get the current item (word & image) for this round
   const item = currentLevelData[currentRoundIndex];
   correctWord = item.word;
-  // Update the image
   wordImage.src = item.image;
   wordImage.alt = item.word;
-  // Prepare options (correct + 2 random wrong)
   const options = generateOptions(item.word);
-  // Render option buttons
-  optionsContainer.innerHTML = "";  // clear previous options
+  optionsContainer.innerHTML = "";
   options.forEach(word => {
     const btn = document.createElement('button');
     btn.textContent = word;
     btn.className = "option-btn";
-    // Make it draggable
     btn.setAttribute('draggable', true);
-    // Attach event handlers
     btn.addEventListener('click', () => handleOptionSelect(word));
     btn.addEventListener('dragstart', handleDragStart);
-    // Append to the options container
     optionsContainer.appendChild(btn);
   });
 }
 
-// Generate an array of three options (1 correct, 2 wrong) shuffled
+// Generate options (1 correct, 2 wrong)
 function generateOptions(correctWord) {
   let words = levels[currentLevel].map(obj => obj.word);
-  // Remove the correct word from the pool
   words = words.filter(w => w !== correctWord);
-  // Randomly pick two wrong words
   shuffleArray(words);
   const wrongWords = words.slice(0, 2);
-  // Combine correct with wrong and shuffle the trio
   const trio = [correctWord, ...wrongWords];
   shuffleArray(trio);
   return trio;
@@ -123,29 +117,27 @@ function generateOptions(correctWord) {
 
 // Handle a click/tap selection
 function handleOptionSelect(selectedWord) {
+  if (answeredThisRound) return;
   if (selectedWord === correctWord) {
-    // Correct answer
+    answeredThisRound = true;
+    score++;
     showFeedback(true);
     goToNextRound();
   } else {
-    // Wrong answer
     showFeedback(false);
-    // (Keep the round active for another try; maybe disable the wrong option)
   }
 }
 
-// Provide visual feedback for correct/incorrect
+// Provide visual feedback
 function showFeedback(isCorrect) {
   if (isCorrect) {
     imageContainer.classList.add('correct');
     feedbackIcon.textContent = "✓";
     feedbackIcon.style.display = "block";
   } else {
-    // Flash incorrect (we can briefly show a cross)
     imageContainer.classList.add('incorrect');
     feedbackIcon.textContent = "✕";
     feedbackIcon.style.display = "block";
-    // Remove the 'incorrect' class after a short delay so it doesn't stick
     setTimeout(() => {
       imageContainer.classList.remove('incorrect');
       feedbackIcon.style.display = "none";
@@ -153,41 +145,34 @@ function showFeedback(isCorrect) {
   }
 }
 
-// Proceed to the next round after a delay (to allow the user to see the feedback)
+// Next round logic
 function goToNextRound() {
   currentRoundIndex++;
   if (currentRoundIndex < currentLevelData.length) {
-    // There is a next round
-    setTimeout(showRound, 1000);  // show next round after 1 second
+    setTimeout(showRound, 1000);
   } else {
-    // Level completed
     setTimeout(finishLevel, 800);
   }
 }
 
-// Finish the level (show a completion message or go back to menu)
+// Finish the level and show result
 function finishLevel() {
-  alert(`Well done! You completed Level ${currentLevel}.`);  // simple alert or could be a nice modal
-  // Return to level selection:
   gameScreen.style.display = "none";
-  levelSelectionScreen.style.display = "block";
+  resultMessage.textContent = `🎉 Congratulations! You scored ${score}/10!`;
+  resultScreen.style.display = "flex";
 }
 
-// Drag and Drop event handlers:
+// Drag and Drop handlers
 function handleDragStart(ev) {
-  // Set the dragged data to the text of the button (the word)
   ev.dataTransfer.setData("text/plain", ev.target.textContent);
-  // (We could also add a drag class for styling if needed)
 }
 
-// Dragover on image container must prevent default to allow drop
+// Dragover on image container
 imageContainer.addEventListener('dragover', ev => {
   ev.preventDefault();
 });
 
-// Highlight on dragenter
 imageContainer.addEventListener('dragenter', ev => {
-  // If a draggable item is entering, add highlight
   if (ev.dataTransfer) {
     imageContainer.classList.add('drag-over');
   }
@@ -196,25 +181,21 @@ imageContainer.addEventListener('dragleave', () => {
   imageContainer.classList.remove('drag-over');
 });
 
-// Handle drop on image container
 imageContainer.addEventListener('drop', ev => {
   ev.preventDefault();
   imageContainer.classList.remove('drag-over');
   const droppedText = ev.dataTransfer.getData("text/plain");
-  if (droppedText) {
-    if (droppedText === correctWord) {
-      // If correct word was dropped
-      showFeedback(true);
-      goToNextRound();
-    } else {
-      // Wrong word dropped
-      showFeedback(false);
-      // (Wrong word remains available for another try)
-    }
+  if (!answeredThisRound && droppedText === correctWord) {
+    answeredThisRound = true;
+    score++;
+    showFeedback(true);
+    goToNextRound();
+  } else if (!answeredThisRound && droppedText !== correctWord) {
+    showFeedback(false);
   }
 });
 
-// Utility: Fisher-Yates shuffle for an array (to randomize order)
+// Shuffle utility
 function shuffleArray(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -222,7 +203,7 @@ function shuffleArray(arr) {
   }
 }
 
-// Event listeners for level buttons and back button
+// Event listeners for navigation
 levelButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     const lvl = btn.getAttribute('data-level');
@@ -230,7 +211,11 @@ levelButtons.forEach(btn => {
   });
 });
 backButton.addEventListener('click', () => {
-  // Stop current game and go back to menu
   gameScreen.style.display = "none";
-  levelSelectionScreen.style.display = "block";
+  levelSelectionScreen.style.display = "flex";
+  resultScreen.style.display = "none";
+});
+returnBtn.addEventListener('click', () => {
+  resultScreen.style.display = "none";
+  levelSelectionScreen.style.display = "flex";
 });
