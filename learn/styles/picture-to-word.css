@@ -1,95 +1,75 @@
 /* styles/picture-to-word.css */
 
-/* Picture display area */
-.image-container {
-  margin: 1.5rem auto 1rem auto;
-  max-width: 260px;
-  padding: 0.75rem;
-  background: #fff;
-  border-radius: 1rem;
-  border: 2px solid #e1e1e1;
-  position: relative;
-  min-height: 150px;
-  box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+/* General body/layout tweaks (inherits most from main.css) */
+body {
+  background-color: var(--bg);
+  font-family: 'KGPrimaryPenmanship', 'Nunito', sans-serif;
 }
 
-.image-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Feedback tick/cross */
-#feedback-icon {
-  position: absolute;
-  top: 10px;
-  right: 16px;
-  font-size: 2.3rem;
-  display: none;
-  pointer-events: none;
-  z-index: 10;
-}
-.image-container.correct #feedback-icon {
-  display: block;
-  color: #22bb33;
-  content: "✓";
-}
-.image-container.incorrect #feedback-icon {
-  display: block;
-  color: #ff4444;
-  content: "✕";
-}
-
-/* Option buttons */
-#options-container {
+/* Centre everything for the level select screen */
+#level-selection {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  justify-content: center;
-  margin-top: 1.2rem;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2.5rem;
 }
 
-.option-btn {
-  min-width: 90px;
-  padding: 1rem 1.25rem;
-  font-size: 1.3rem;
-  background: #e1f4ff;
-  border: 2px solid var(--primary);
-  border-radius: 1rem;
-  color: var(--primary);
-  font-family: inherit;
+#level-selection h1 {
+  font-size: 2rem;
+  margin-bottom: 2.2rem;
+  color: var(--text-dark);
+  font-family: 'KGPrimaryPenmanship', 'Nunito', sans-serif;
+}
+
+.levels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* Match button style to your screenshot */
+.level-btn {
+  min-width: 220px;
+  padding: 1.1rem 0;
+  font-size: 1.25rem;
   font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  transition: background 0.2s, border 0.2s, color 0.2s;
-}
-
-.option-btn:hover, .option-btn:active, .option-btn:focus {
-  background: var(--primary-light);
+  border-radius: 1rem;
+  border: 2px solid #23405c;
+  background: var(--primary);
   color: #fff;
+  margin: 0 auto;
+  transition: background 0.15s, border 0.15s, box-shadow 0.18s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.level-btn:focus,
+.level-btn:hover {
+  background: var(--primary-light);
   border-color: var(--primary-light);
+  outline: none;
 }
 
-/* Drag-over highlight for desktop */
-.drop-target.drag-over {
-  border: 2.5px dashed #22bb33 !important;
-  background: #f7fdf7;
+/* Make all screens use the same background and centre layout */
+.screen {
+  background: var(--bg);
+  border-radius: 1rem;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-/* Responsive for mobile */
+/* Responsive tweaks */
 @media (max-width: 600px) {
-  .image-container {
-    max-width: 95vw;
-    min-height: 120px;
+  #level-selection {
+    margin-top: 1.1rem;
   }
-  #options-container {
-    flex-direction: column;
-    gap: 0.8rem;
+  .level-btn {
+    min-width: 90vw;
+    font-size: 1.1rem;
+    padding: 1rem 0.5rem;
   }
-  .option-btn {
-    min-width: 0;
-    width: 100%;
-    font-size: 1.2rem;
-    padding: 1rem;
+  .levels {
+    gap: 1rem;
   }
 }
