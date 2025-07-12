@@ -1,12 +1,12 @@
 /* styles/picture-to-word.css */
 
-/* --- General body/layout tweaks (inherits most from main.css) --- */
+/* General body/layout tweaks */
 body {
   background-color: var(--bg);
   font-family: 'KGPrimaryPenmanship', 'Nunito', sans-serif;
 }
 
-/* --- Logo at the top --- */
+/* Logo */
 .logo-header {
   text-align: center;
   margin-top: 2rem;
@@ -17,27 +17,24 @@ body {
   height: auto;
 }
 
-/* --- Centre everything for the level select screen --- */
+/* Level select screen */
 #level-selection {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 2.5rem;
 }
-
 #level-selection h1 {
   font-size: 2rem;
   margin-bottom: 2.2rem;
   color: var(--text-dark);
   font-family: 'KGPrimaryPenmanship', 'Nunito', sans-serif;
 }
-
 .levels {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
 }
-
 .level-btn {
   min-width: 220px;
   padding: 1.1rem 0;
@@ -53,7 +50,6 @@ body {
   cursor: pointer;
   letter-spacing: 0.5px;
 }
-
 .level-btn:focus,
 .level-btn:hover {
   background: var(--primary-light);
@@ -61,7 +57,32 @@ body {
   outline: none;
 }
 
-/* --- In-game picture display area --- */
+/* Bubble-like back/return button */
+.bubble-btn {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 2.5rem;
+  border: 2.5px solid #23405c;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  letter-spacing: 0.5px;
+  margin: 1.5rem 0 1rem 0;
+  cursor: pointer;
+  transition: background 0.18s, border 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.bubble-btn:focus,
+.bubble-btn:hover {
+  background: var(--primary-light);
+  color: #fff;
+  border-color: var(--primary-light);
+  outline: none;
+  box-shadow: 0 4px 18px rgba(0,100,180,0.09);
+}
+
+/* In-game picture display area */
 .image-container {
   margin: 1.5rem auto 1.5rem auto;
   max-width: 260px;
@@ -73,14 +94,11 @@ body {
   min-height: 150px;
   box-shadow: 0 1px 10px rgba(0,0,0,0.05);
 }
-
 .image-container img {
   width: 100%;
   height: auto;
   display: block;
 }
-
-/* --- Feedback tick/cross --- */
 #feedback-icon {
   position: absolute;
   top: 10px;
@@ -101,7 +119,7 @@ body {
   content: "✕";
 }
 
-/* --- Make word choice buttons bigger and more inviting --- */
+/* Bigger, friendlier word choice buttons */
 #options-container {
   margin-top: 1.8rem;
   display: flex;
@@ -109,7 +127,6 @@ body {
   gap: 2rem;
   justify-content: center;
 }
-
 .option-btn {
   min-width: 120px;
   padding: 1.3rem 2.2rem;
@@ -126,7 +143,6 @@ body {
   margin: 0.4rem;
   letter-spacing: 1px;
 }
-
 .option-btn:hover,
 .option-btn:active,
 .option-btn:focus {
@@ -135,13 +151,28 @@ body {
   border-color: var(--primary-light);
 }
 
-/* --- Drag-over highlight for desktop --- */
+/* Drag-over highlight */
 .drop-target.drag-over {
   border: 2.5px dashed #22bb33 !important;
   background: #f7fdf7;
 }
 
-/* --- Responsive tweaks for mobile --- */
+/* Result screen */
+#result-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+#result-message {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #22bb33;
+  font-family: 'KGPrimaryPenmanship', 'Nunito', sans-serif;
+}
+
+/* Responsive tweaks */
 @media (max-width: 600px) {
   .logo-header {
     margin-top: 1.1rem;
@@ -172,37 +203,10 @@ body {
     width: 100%;
     margin: 0.3rem 0;
   }
-/* Bubble-like back button style */
-.bubble-btn {
-  display: inline-block;
-  background: var(--primary);
-  color: #fff;
-  font-size: 1.15rem;
-  font-weight: 700;
-  padding: 0.8rem 2rem;
-  border-radius: 2.5rem;
-  border: 2.5px solid #23405c;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  letter-spacing: 0.5px;
-  margin: 1.5rem 0 1rem 0;
-  cursor: pointer;
-  transition: background 0.18s, border 0.18s, color 0.18s, box-shadow 0.18s;
-}
-.bubble-btn:focus,
-.bubble-btn:hover {
-  background: var(--primary-light);
-  color: #fff;
-  border-color: var(--primary-light);
-  outline: none;
-  box-shadow: 0 4px 18px rgba(0,100,180,0.09);
-}
-
-/* Responsive tweak */
-@media (max-width: 600px) {
   .bubble-btn {
     width: 100%;
     font-size: 1.03rem;
     padding: 0.7rem 1rem;
     margin-top: 1.2rem;
   }
-}}
+}
