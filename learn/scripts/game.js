@@ -1,20 +1,53 @@
 // Data for levels (as defined earlier, potentially imported or in the same file)
 const levels = {
   A: [
-    { word: "cat", image: "images/cat.webp" },
-    { word: "dog", image: "images/dog.webp" },
-    { word: "zip", image: "images/zip.webp" },
-    { word: "sun", image: "images/sun.webp" },
-    { word: "bag", image: "images/bag.webp" },
-    { word: "pen", image: "images/pen.webp" },
-    { word: "pig", image: "images/pig.webp" },
-    { word: "cup", image: "images/cup.webp" },
-    { word: "hat", image: "images/hat.webp" },
-    { word: "fox", image: "images/fox.webp" }
+    { word: "cat", image: "cat.webp" },
+    { word: "dog", image: "dog.webp" },
+    { word: "zip", image: "zip.webp" },
+    { word: "sun", image: "sun.webp" },
+    { word: "bag", image: "bag.webp" },
+    { word: "pen", image: "pen.webp" },
+    { word: "pig", image: "pig.webp" },
+    { word: "cup", image: "cup.webp" },
+    { word: "hat", image: "hat.webp" },
+    { word: "fox", image: "fox.webp" }
   ],
-  B: [ /* 10 word objects for Level B... */ ],
-  C: [ /* Level C words... */ ],
-  D: [ /* Level D words... */ ]
+  B: [
+    { word: "pan", image: "pan.webp" },
+    { word: "bun", image: "bun.webp" },
+    { word: "cap", image: "cap.webp" },
+    { word: "bed", image: "bed.webp" },
+    { word: "jet", image: "jet.webp" },
+    { word: "map", image: "map.webp" },
+    { word: "log", image: "log.webp" },
+    { word: "man", image: "man.webp" },
+    { word: "mud", image: "mud.webp" },
+    { word: "web", image: "web.webp" }
+  ],
+  C: [
+    { word: "den", image: "den.webp" },
+    { word: "fan", image: "fan.webp" },
+    { word: "lid", image: "lid.webp" },
+    { word: "lit", image: "lit.webp" },
+    { word: "mop", image: "mop.webp" },
+    { word: "pot", image: "pot.webp" },
+    { word: "ram", image: "ram.webp" },
+    { word: "vet", image: "vet.webp" },
+    { word: "six", image: "six.webp" },
+    { word: "wax", image: "wax.webp" }
+  ],
+  D: [
+    { word: "bib", image: "bib.webp" },
+    { word: "fig", image: "fig.webp" },
+    { word: "kid", image: "kid.webp" },
+    { word: "leg", image: "leg.webp" },
+    { word: "mix", image: "mix.webp" },
+    { word: "nod", image: "nod.webp" },
+    { word: "pod", image: "pod.webp" },
+    { word: "rob", image: "rob.webp" },
+    { word: "sad", image: "sad.webp" },
+    { word: "yam", image: "yam.webp" }
+  ]
 };
 
 // Get references to DOM elements
