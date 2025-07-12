@@ -1,16 +1,16 @@
 // Data for levels (as defined earlier, potentially imported or in the same file)
 const levels = {
   A: [
-    { word: "cat", image: "cat.webp" },
-    { word: "dog", image: "dog.webp" },
-    { word: "zip", image: "zip.webp" },
-    { word: "sun", image: "sun.webp" },
-    { word: "bag", image: "bag.webp" },
-    { word: "pen", image: "pen.webp" },
-    { word: "pig", image: "pig.webp" },
-    { word: "cup", image: "cup.webp" },
-    { word: "hat", image: "hat.webp" },
-    { word: "fox", image: "fox.webp" }
+    { word: "cat", image: "assets/images/cat.webp" },
+    { word: "dog", image: "assets/images/dog.webp" },
+    { word: "zip", image: "assets/images/zip.webp" },
+    { word: "sun", image: "assets/images/sun.webp" },
+    { word: "bag", image: "assets/images/bag.webp" },
+    { word: "pen", image: "assets/images/pen.webp" },
+    { word: "pig", image: "assets/images/pig.webp" },
+    { word: "cup", image: "assets/images/cup.webp" },
+    { word: "hat", image: "assets/images/hat.webp" },
+    { word: "fox", image: "assets/images/fox.webp" }
   ],
   B: [
     { word: "pan", image: "pan.webp" },
