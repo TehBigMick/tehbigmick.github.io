@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CVC Phonics Picture-Word Match</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Level Selection Screen -->
+  <div id="level-selection" class="screen">
+    <h1>Select a Level</h1>
+    <div class="levels">
+      <button class="level-btn" data-level="A">Level A</button>
+      <button class="level-btn" data-level="B">Level B</button>
+      <button class="level-btn" data-level="C">Level C</button>
+      <button class="level-btn" data-level="D">Level D</button>
+    </div>
+  </div>
+
+  <!-- Game Screen (initially hidden) -->
+  <div id="game-screen" class="screen" style="display:none;">
+    <!-- Optionally, a back button to level selection -->
+    <button id="back-btn">← Levels</button>
+
+    <!-- Display the current round image and options -->
+    <div id="image-container" class="image-container drop-target">
+      <img id="word-image" src="" alt="Word Image" />
+      <!-- Tick/Cross feedback icons could be positioned inside this container -->
+      <span id="feedback-icon"></span>
+    </div>
+    <p id="prompt">Choose the correct word for the picture:</p>
+    <div id="options-container" class="options">
+      <!-- Word option buttons will be generated here via JavaScript -->
+    </div>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>
