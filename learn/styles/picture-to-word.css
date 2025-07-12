@@ -1,0 +1,95 @@
+/* styles/picture-to-word.css */
+
+/* Picture display area */
+.image-container {
+  margin: 1.5rem auto 1rem auto;
+  max-width: 260px;
+  padding: 0.75rem;
+  background: #fff;
+  border-radius: 1rem;
+  border: 2px solid #e1e1e1;
+  position: relative;
+  min-height: 150px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Feedback tick/cross */
+#feedback-icon {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 2.3rem;
+  display: none;
+  pointer-events: none;
+  z-index: 10;
+}
+.image-container.correct #feedback-icon {
+  display: block;
+  color: #22bb33;
+  content: "✓";
+}
+.image-container.incorrect #feedback-icon {
+  display: block;
+  color: #ff4444;
+  content: "✕";
+}
+
+/* Option buttons */
+#options-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+.option-btn {
+  min-width: 90px;
+  padding: 1rem 1.25rem;
+  font-size: 1.3rem;
+  background: #e1f4ff;
+  border: 2px solid var(--primary);
+  border-radius: 1rem;
+  color: var(--primary);
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: background 0.2s, border 0.2s, color 0.2s;
+}
+
+.option-btn:hover, .option-btn:active, .option-btn:focus {
+  background: var(--primary-light);
+  color: #fff;
+  border-color: var(--primary-light);
+}
+
+/* Drag-over highlight for desktop */
+.drop-target.drag-over {
+  border: 2.5px dashed #22bb33 !important;
+  background: #f7fdf7;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  .image-container {
+    max-width: 95vw;
+    min-height: 120px;
+  }
+  #options-container {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .option-btn {
+    min-width: 0;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+}
