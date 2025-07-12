@@ -1,52 +1,52 @@
 // Data for levels (as defined earlier, potentially imported or in the same file)
 const levels = {
   A: [
-    { word: "cat", image: "cat.webp" },
-    { word: "dog", image: "dog.webp" },
-    { word: "zip", image: "zip.webp" },
-    { word: "sun", image: "sun.webp" },
-    { word: "bag", image: "bag.webp" },
-    { word: "pen", image: "pen.webp" },
-    { word: "pig", image: "pig.webp" },
-    { word: "cup", image: "cup.webp" },
-    { word: "hat", image: "hat.webp" },
-    { word: "fox", image: "fox.webp" }
+    { word: "cat", image: "/assets/images/cat.webp" },
+    { word: "dog", image: "/assets/images/dog.webp" },
+    { word: "zip", image: "/assets/images/zip.webp" },
+    { word: "sun", image: "/assets/images/sun.webp" },
+    { word: "bag", image: "/assets/images/bag.webp" },
+    { word: "pen", image: "/assets/images/pen.webp" },
+    { word: "pig", image: "/assets/images/pig.webp" },
+    { word: "cup", image: "/assets/images/cup.webp" },
+    { word: "hat", image: "/assets/images/hat.webp" },
+    { word: "fox", image: "/assets/images/fox.webp" }
   ],
   B: [
-    { word: "pan", image: "pan.webp" },
-    { word: "bun", image: "bun.webp" },
-    { word: "cap", image: "cap.webp" },
-    { word: "bed", image: "bed.webp" },
-    { word: "jet", image: "jet.webp" },
-    { word: "map", image: "map.webp" },
-    { word: "log", image: "log.webp" },
-    { word: "man", image: "man.webp" },
-    { word: "mud", image: "mud.webp" },
-    { word: "web", image: "web.webp" }
+    { word: "pan", image: "/assets/images/pan.webp" },
+    { word: "bun", image: "/assets/images/bun.webp" },
+    { word: "cap", image: "/assets/images/cap.webp" },
+    { word: "bed", image: "/assets/images/bed.webp" },
+    { word: "jet", image: "/assets/images/jet.webp" },
+    { word: "map", image: "/assets/images/map.webp" },
+    { word: "log", image: "/assets/images/log.webp" },
+    { word: "man", image: "/assets/images/man.webp" },
+    { word: "mud", image: "/assets/images/mud.webp" },
+    { word: "web", image: "/assets/images/web.webp" }
   ],
   C: [
-    { word: "den", image: "den.webp" },
-    { word: "fan", image: "fan.webp" },
-    { word: "lid", image: "lid.webp" },
-    { word: "lit", image: "lit.webp" },
-    { word: "mop", image: "mop.webp" },
-    { word: "pot", image: "pot.webp" },
-    { word: "ram", image: "ram.webp" },
-    { word: "vet", image: "vet.webp" },
-    { word: "six", image: "six.webp" },
-    { word: "wax", image: "wax.webp" }
+    { word: "den", image: "/assets/images/den.webp" },
+    { word: "fan", image: "/assets/images/fan.webp" },
+    { word: "lid", image: "/assets/images/lid.webp" },
+    { word: "lit", image: "/assets/images/lit.webp" },
+    { word: "mop", image: "/assets/images/mop.webp" },
+    { word: "pot", image: "/assets/images/pot.webp" },
+    { word: "ram", image: "/assets/images/ram.webp" },
+    { word: "vet", image: "/assets/images/vet.webp" },
+    { word: "six", image: "/assets/images/six.webp" },
+    { word: "wax", image: "/assets/images/wax.webp" }
   ],
   D: [
-    { word: "bib", image: "bib.webp" },
-    { word: "fig", image: "fig.webp" },
-    { word: "kid", image: "kid.webp" },
-    { word: "leg", image: "leg.webp" },
-    { word: "mix", image: "mix.webp" },
-    { word: "nod", image: "nod.webp" },
-    { word: "pod", image: "pod.webp" },
-    { word: "rob", image: "rob.webp" },
-    { word: "sad", image: "sad.webp" },
-    { word: "yam", image: "yam.webp" }
+    { word: "bib", image: "/assets/images/bib.webp" },
+    { word: "fig", image: "/assets/images/fig.webp" },
+    { word: "kid", image: "/assets/images/kid.webp" },
+    { word: "leg", image: "/assets/images/leg.webp" },
+    { word: "mix", image: "/assets/images/mix.webp" },
+    { word: "nod", image: "/assets/images/nod.webp" },
+    { word: "pod", image: "/assets/images/pod.webp" },
+    { word: "rob", image: "/assets/images/rob.webp" },
+    { word: "sad", image: "/assets/images/sad.webp" },
+    { word: "yam", image: "/assets/images/yam.webp" }
   ]
 };
 
