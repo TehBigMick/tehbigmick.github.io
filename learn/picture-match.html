@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="styles/picture-to-word.css">
 </head>
 <body>
-    <div style="text-align:center; margin-top: 2rem;">
-    <img src="../assets/logo-learn.webp" alt="Learn CVC with Michael" style="max-width:320px; width:100%; height:auto;">
+
+  <!-- Logo Header -->
+  <div class="logo-header">
+    <img src="../assets/logo-learn.webp" alt="Learn CVC with Michael">
   </div>
 
   <!-- Level Selection Screen -->
@@ -23,21 +25,21 @@
     </div>
   </div>
 
-  <!-- Game Screen (initially hidden) -->
+  <!-- Game Screen -->
   <div id="game-screen" class="screen" style="display:none;">
-    <!-- Optionally, a back button to level selection -->
     <button id="back-btn" class="bubble-btn">← Levels</button>
-
-    <!-- Display the current round image and options -->
     <div id="image-container" class="image-container drop-target">
       <img id="word-image" src="" alt="Word Image" />
-      <!-- Tick/Cross feedback icons could be positioned inside this container -->
       <span id="feedback-icon"></span>
     </div>
     <p id="prompt">Choose the correct word for the picture:</p>
-    <div id="options-container" class="options">
-      <!-- Word option buttons will be generated here via JavaScript -->
-    </div>
+    <div id="options-container" class="options"></div>
+  </div>
+
+  <!-- Result Screen -->
+  <div id="result-screen" class="screen" style="display:none;">
+    <h2 id="result-message"></h2>
+    <button id="return-btn" class="bubble-btn">Back to Levels</button>
   </div>
 
   <script src="scripts/game.js"></script>
