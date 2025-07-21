@@ -22,11 +22,17 @@
       <nav class="main-nav">
         <ul>
           <li><a href="/learn/index.html">Learning Activities</a></li>
-          <li><a href="/learn/decodable/index.html">Decodable Books</a></li>
+          <li><a href="/learn/decodable/index.html" class="active">Decodable Books</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
+  <!-- Breadcrumb Buttons -->
+  <div class="container breadcrumb-buttons" style="margin:1rem auto; max-width:400px;">
+    <a href="/learn/index.html" class="btn">Learning Activities</a>
+    <a href="/learn/decodable/index.html" class="btn active">Decodable Books</a>
+  </div>
 
   <main class="decodable-prelearning container">
     <h1>Pre-Learning: I Can Hop</h1>
@@ -35,9 +41,22 @@
     <section class="phoneme-table">
       <h2>Letter Sounds</h2>
       <table>
-        <tr><td><button class="sound-btn" data-sound="n">n</button></td><td><button class="sound-btn" data-sound="a">a</button></td><td><button class="sound-btn" data-sound="p">p</button></td><td><button class="sound-btn" data-sound="m">m</button></td></tr>
-        <tr><td><button class="sound-btn" data-sound="s">s</button></td><td><button class="sound-btn" data-sound="t">t</button></td><td><button class="sound-btn" data-sound="o">o</button></td><td><button class="sound-btn" data-sound="d">d</button></td></tr>
-        <tr><td><button class="sound-btn" data-sound="h">h</button></td><td colspan="3"></td></tr>
+        <tr>
+          <td><button class="sound-btn" data-sound="n">n</button></td>
+          <td><button class="sound-btn" data-sound="a">a</button></td>
+          <td><button class="sound-btn" data-sound="p">p</button></td>
+          <td><button class="sound-btn" data-sound="m">m</button></td>
+        </tr>
+        <tr>
+          <td><button class="sound-btn" data-sound="s">s</button></td>
+          <td><button class="sound-btn" data-sound="t">t</button></td>
+          <td><button class="sound-btn" data-sound="o">o</button></td>
+          <td><button class="sound-btn" data-sound="d">d</button></td>
+        </tr>
+        <tr>
+          <td><button class="sound-btn" data-sound="h">h</button></td>
+          <td colspan="3"></td>
+        </tr>
       </table>
     </section>
 
