@@ -1,0 +1,171 @@
+/* File: /styles/decodable.css */
+
+/* === General Containers === */
+.decodedable-index,
+.decodable-prelearning,
+.decodable-menu,
+.decodable-video,
+.decodable-read {
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === Breadcrumb Buttons === */
+.breadcrumb-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.breadcrumb-buttons .btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+.breadcrumb-buttons .btn.active {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* === Book Grid === */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.book-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s;
+  text-align: center;
+}
+.book-card:hover {
+  transform: translateY(-5px);
+}
+.book-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.book-card h2 {
+  margin: 0.75rem 0;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+/* === Menu List === */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.menu-item {
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--color-secondary-light);
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+.menu-item .icon {
+  margin-right: 0.5rem;
+}
+.menu-item:hover {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+/* === Responsive Video === */
+.responsive-video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+}
+
+/* === Page Reader === */
+.book-reader {
+  text-align: center;
+}
+#flipbook {
+  margin: 1rem auto;
+  width: 600px;
+  height: 800px;
+}
+.flip-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.flip-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+}
+.flip-btn:hover {
+  background: var(--color-primary-dark);
+}
+
+/* === Sound Button === */
+.sound-btn {
+  display: inline-block;
+  padding: 0.5rem;
+  margin: 0.25rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  min-width: 2.5rem;
+  text-align: center;
+}
+.sound-btn:hover {
+  background: var(--color-primary-light);
+}
+
+/* === Tables === */
+section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+section table td {
+  border: 1px solid var(--color-border);
+  padding: 0.75rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* === Blending Families Layout === */
+.blending-families {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.blending-family {
+  flex: 1;
+  min-width: 200px;
+}
+.blending-family h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+/* === High-Frequency === */
+.high-frequency table td button {
+  width: 100%;
+}
