@@ -5,62 +5,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>I Can Hop | Decodable Books - CVC Phonics</title>
-  <!-- site-wide styles -->
+  <!-- Site-wide styles -->
   <link rel="stylesheet" href="/styles/main.css">
+  <!-- Learn section styles -->
   <link rel="stylesheet" href="/styles/learn.css">
+  <!-- Decodable section overrides -->
   <link rel="stylesheet" href="/styles/decodable.css">
 </head>
 <body>
-  <!-- Learn-style header with logo -->
-  <header class="site-header learn-header">
-    <div class="container">
-      <a href="/learn/index.html" class="logo">
-        <img src="/assets/logo-learn.webp" alt="Michael's Phonics Hub – Learning">
-      </a>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="/learn/index.html">Learning Activities</a></li>
-          <li><a href="/learn/decodable/index.html">Decodable Books</a></li>
-        </ul>
-      </nav>
+  <main class="decodable-menu container" style="position: relative; padding-top: 4rem;">
+    <!-- Top-left bubble nav -->
+    <div class="nav-buttons" style="position: absolute; top: 1rem; left: 1rem; display: flex; gap: 0.5rem;">
+      <a href="/" class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.9rem;">Home</a>
+      <a href="/learn/index.html" class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.9rem;">Learning Activities</a>
+      <a href="/learn/decodable/index.html" class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.9rem;">Decodable Books</a>
     </div>
-  </header>
 
-  <!-- Bubble-style nav back to home, activities, decodables -->
-  <div class="container breadcrumb-buttons" style="margin:1rem auto; max-width:400px;">
-    <a href="/" class="btn">Home</a>
-    <a href="/learn/index.html" class="btn">Learning Activities</a>
-    <a href="/learn/decodable/index.html" class="btn">Decodable Books</a>
-  </div>
+    <!-- Book cover and options -->
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-top: 2rem;">
+      <!-- Cover image only -->
+      <div class="book-cover" style="flex: 1; text-align: center;">
+        <img src="/assets/images/decodable/book12/poster.webp" alt="I Can Hop cover" style="max-width: 180px; height: auto;">
+      </div>
 
-  <!-- Main menu -->
-  <main class="decodable-menu container text-center" style="margin-top:2rem;">
-    <!-- Centered title -->
-    <h1>I Can Hop</h1>
-
-    <!-- Book cover -->
-    <img
-      src="/assets/images/decodable/book12/poster.webp"
-      alt="I Can Hop cover"
-      style="max-width:200px; height:auto; margin:1rem auto;"
-    >
-
-    <!-- Option buttons -->
-    <div style="display:inline-flex; flex-direction:column; gap:1rem; margin-top:2rem;">
-      <a href="read.html" class="btn">
-        📖 Read the Book
-      </a>
-      <a href="video.html" class="btn">
-        🎥 Watch Read-Along
-      </a>
-      <a href="prelearning.html" class="btn">
-        🧠 Pre-Learning Activities
-      </a>
+      <!-- Option buttons -->
+      <div class="option-buttons" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <a href="read.html" class="btn" style="width: 200px;">📖 Read the Book</a>
+        <a href="video.html" class="btn" style="width: 200px;">🎥 Watch Read-Along</a>
+        <a href="prelearning.html" class="btn" style="width: 200px;">🧠 Pre-Learning Activities</a>
+      </div>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer" style="margin-top:3rem;">
+  <footer class="site-footer" style="margin-top: 4rem;">
     <div class="container">
       <p>&copy; 2025 CVC Phonics. All rights reserved.</p>
     </div>
