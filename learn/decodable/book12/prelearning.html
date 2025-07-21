@@ -80,17 +80,17 @@
         <tr>
           <td>h</td>
           <td></td>
-          <td>hop</td>
+          <td><button class="sound-btn" data-sound="hop">hop</button></td>
         </tr>
         <tr>
           <td>m</td>
           <td>-op</td>
-          <td>mop</td>
+          <td><button class="sound-btn" data-sound="mop">mop</button></td>
         </tr>
         <tr>
           <td>t</td>
           <td></td>
-          <td>top</td>
+          <td><button class="sound-btn" data-sound="top">top</button></td>
         </tr>
       </table>
 
@@ -99,19 +99,27 @@
         <tr>
           <td>d</td>
           <td></td>
-          <td>dot</td>
+          <td><button class="sound-btn" data-sound="dot">dot</button></td>
         </tr>
         <tr>
           <td>h</td>
           <td>-ot</td>
-          <td>hot</td>
+          <td><button class="sound-btn" data-sound="hot">hot</button></td>
         </tr>
         <tr>
           <td>p</td>
           <td></td>
-          <td>pot</td>
+          <td><button class="sound-btn" data-sound="pot">pot</button></td>
         </tr>
       </table>
+
+      <!-- Audio for blended words -->
+      <audio id="sound-hop" src="/assets/audio/hop.mp3" preload="none"></audio>
+      <audio id="sound-mop" src="/assets/audio/mop.mp3" preload="none"></audio>
+      <audio id="sound-top" src="/assets/audio/top.mp3" preload="none"></audio>
+      <audio id="sound-dot" src="/assets/audio/dot.mp3" preload="none"></audio>
+      <audio id="sound-hot" src="/assets/audio/hot.mp3" preload="none"></audio>
+      <audio id="sound-pot" src="/assets/audio/pot.mp3" preload="none"></audio>
     </section>
 
     <!-- 3. High-Frequency Words -->
@@ -167,7 +175,7 @@
 
   <!-- Scripts -->
   <script>
-    // Play sound on button click, lazy-load ensures small initial payload
+    // Play corresponding sound on button click
     document.querySelectorAll('.sound-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const audio = document.getElementById('sound-' + btn.dataset.sound);
