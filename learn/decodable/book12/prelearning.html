@@ -13,10 +13,12 @@
   <link rel="stylesheet" href="/styles/decodable.css">
 </head>
 <body>
-  <!-- Header/Nav -->
-  <header class="site-header">
+  <!-- Header matching Learn style -->
+  <header class="site-header learn-header">
     <div class="container">
-      <a href="/" class="logo">CVC Phonics</a>
+      <a href="/learn/index.html" class="logo">
+        <img src="/assets/logo-learn.webp" alt="Michael's Phonics Hub – Learning">
+      </a>
       <nav class="main-nav">
         <ul>
           <li><a href="/learn/index.html">Learning Activities</a></li>
@@ -33,138 +35,44 @@
     <section class="phoneme-table">
       <h2>Letter Sounds</h2>
       <table>
-        <tr>
-          <td><button class="sound-btn" data-sound="n">n</button></td>
-          <td><button class="sound-btn" data-sound="a">a</button></td>
-          <td><button class="sound-btn" data-sound="p">p</button></td>
-          <td><button class="sound-btn" data-sound="m">m</button></td>
-        </tr>
-        <tr>
-          <td><button class="sound-btn" data-sound="s">s</button></td>
-          <td><button class="sound-btn" data-sound="t">t</button></td>
-          <td><button class="sound-btn" data-sound="o">o</button></td>
-          <td><button class="sound-btn" data-sound="d">d</button></td>
-        </tr>
-        <tr>
-          <td><button class="sound-btn" data-sound="h">h</button></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <tr><td><button class="sound-btn" data-sound="n">n</button></td><td><button class="sound-btn" data-sound="a">a</button></td><td><button class="sound-btn" data-sound="p">p</button></td><td><button class="sound-btn" data-sound="m">m</button></td></tr>
+        <tr><td><button class="sound-btn" data-sound="s">s</button></td><td><button class="sound-btn" data-sound="t">t</button></td><td><button class="sound-btn" data-sound="o">o</button></td><td><button class="sound-btn" data-sound="d">d</button></td></tr>
+        <tr><td><button class="sound-btn" data-sound="h">h</button></td><td colspan="3"></td></tr>
       </table>
-
-      <!-- Audio for letters -->
-      <audio id="sound-n" src="/assets/audio/n.mp3" preload="none"></audio>
-      <audio id="sound-a" src="/assets/audio/a.mp3" preload="none"></audio>
-      <audio id="sound-p" src="/assets/audio/p.mp3" preload="none"></audio>
-      <audio id="sound-m" src="/assets/audio/m.mp3" preload="none"></audio>
-      <audio id="sound-s" src="/assets/audio/s.mp3" preload="none"></audio>
-      <audio id="sound-t" src="/assets/audio/t.mp3" preload="none"></audio>
-      <audio id="sound-o" src="/assets/audio/o.mp3" preload="none"></audio>
-      <audio id="sound-d" src="/assets/audio/d.mp3" preload="none"></audio>
-      <audio id="sound-h" src="/assets/audio/h.mp3" preload="none"></audio>
     </section>
 
-    <!-- 2. Blending Table -->
+    <!-- 2. Blending Section -->
     <section class="blending">
       <h2>Blending</h2>
+      <div class="blending-families">
+        <div class="blending-family">
+          <h3>-op Family</h3>
+          <table>
+            <tr><td>h</td><td><button class="sound-btn" data-sound="op">-op</button></td><td><button class="sound-btn" data-sound="hop">hop</button></td></tr>
+            <tr><td>m</td><td><button class="sound-btn" data-sound="op">-op</button></td><td><button class="sound-btn" data-sound="mop">mop</button></td></tr>
+            <tr><td>t</td><td><button class="sound-btn" data-sound="op">-op</button></td><td><button class="sound-btn" data-sound="top">top</button></td></tr>
+          </table>
+        </div>
 
-      <h3>-op Family</h3>
-      <table>
-        <tr>
-          <td>h</td>
-          <td><button class="sound-btn" data-sound="op">-op</button></td>
-          <td><button class="sound-btn" data-sound="hop">hop</button></td>
-        </tr>
-        <tr>
-          <td>m</td>
-          <td><button class="sound-btn" data-sound="op">-op</button></td>
-          <td><button class="sound-btn" data-sound="mop">mop</button></td>
-        </tr>
-        <tr>
-          <td>t</td>
-          <td><button class="sound-btn" data-sound="op">-op</button></td>
-          <td><button class="sound-btn" data-sound="top">top</button></td>
-        </tr>
-      </table>
-
-      <h3>-ot Family</h3>
-      <table>
-        <tr>
-          <td>d</td>
-          <td><button class="sound-btn" data-sound="ot">-ot</button></td>
-          <td><button class="sound-btn" data-sound="dot">dot</button></td>
-        </tr>
-        <tr>
-          <td>h</td>
-          <td><button class="sound-btn" data-sound="ot">-ot</button></td>
-          <td><button class="sound-btn" data-sound="hot">hot</button></td>
-        </tr>
-        <tr>
-          <td>p</td>
-          <td><button class="sound-btn" data-sound="ot">-ot</button></td>
-          <td><button class="sound-btn" data-sound="pot">pot</button></td>
-        </tr>
-      </table>
-
-      <!-- Audio for blended words and rimes -->
-      <audio id="sound-op" src="/assets/audio/op.mp3" preload="none"></audio>
-      <audio id="sound-ot" src="/assets/audio/ot.mp3" preload="none"></audio>
-      <audio id="sound-hop" src="/assets/audio/hop.mp3" preload="none"></audio>
-      <audio id="sound-mop" src="/assets/audio/mop.mp3" preload="none"></audio>
-      <audio id="sound-top" src="/assets/audio/top.mp3" preload="none"></audio>
-      <audio id="sound-dot" src="/assets/audio/dot.mp3" preload="none"></audio>
-      <audio id="sound-hot" src="/assets/audio/hot.mp3" preload="none"></audio>
-      <audio id="sound-pot" src="/assets/audio/pot.mp3" preload="none"></audio>
+        <div class="blending-family">
+          <h3>-ot Family</h3>
+          <table>
+            <tr><td>d</td><td><button class="sound-btn" data-sound="ot">-ot</button></td><td><button class="sound-btn" data-sound="dot">dot</button></td></tr>
+            <tr><td>h</td><td><button class="sound-btn" data-sound="ot">-ot</button></td><td><button class="sound-btn" data-sound="hot">hot</button></td></tr>
+            <tr><td>p</td><td><button class="sound-btn" data-sound="ot">-ot</button></td><td><button class="sound-btn" data-sound="pot">pot</button></td></tr>
+          </table>
+        </div>
+      </div>
     </section>
 
     <!-- 3. High-Frequency Words -->
     <section class="high-frequency">
       <h2>High-Frequency Words</h2>
       <table>
-        <tr>
-          <td><button class="sound-btn" data-sound="hf-me">me</button></td>
-          <td><button class="sound-btn" data-sound="hf-of">of</button></td>
-          <td><button class="sound-btn" data-sound="hf-too">too</button></td>
-          <td><button class="sound-btn" data-sound="hf-can">can</button></td>
-        </tr>
-        <tr>
-          <td><button class="sound-btn" data-sound="hf-cannot">cannot</button></td>
-          <td><button class="sound-btn" data-sound="hf-get">get</button></td>
-          <td><button class="sound-btn" data-sound="hf-i">I</button></td>
-          <td><button class="sound-btn" data-sound="hf-is">is</button></td>
-        </tr>
-        <tr>
-          <td><button class="sound-btn" data-sound="hf-on">on</button></td>
-          <td><button class="sound-btn" data-sound="hf-see">see</button></td>
-          <td><button class="sound-btn" data-sound="hf-the">the</button></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <tr><td><button class="sound-btn" data-sound="hf-me">me</button></td><td><button class="sound-btn" data-sound="hf-of">of</button></td><td><button class="sound-btn" data-sound="hf-too">too</button></td><td><button class="sound-btn" data-sound="hf-can">can</button></td></tr>
+        <tr><td><button class="sound-btn" data-sound="hf-cannot">cannot</button></td><td><button class="sound-btn" data-sound="hf-get">get</button></td><td><button class="sound-btn" data-sound="hf-i">I</button></td><td><button class="sound-btn" data-sound="hf-is">is</button></td></tr>
+        <tr><td><button class="sound-btn" data-sound="hf-on">on</button></td><td><button class="sound-btn" data-sound="hf-see">see</button></td><td><button class="sound-btn" data-sound="hf-the">the</button></td><td></td></tr>
       </table>
-      <!-- Audio for high-frequency words -->
-      <audio id="sound-hf-me" src="/assets/audio/me.mp3" preload="none"></audio>
-      <audio id="sound-hf-of" src="/assets/audio/of.mp3" preload="none"></audio>
-      <audio id="sound-hf-too" src="/assets/audio/too.mp3" preload="none"></audio>
-      <audio id="sound-hf-can" src="/assets/audio/can.mp3" preload="none"></audio>
-      <audio id="sound-hf-cannot" src="/assets/audio/cannot.mp3" preload="none"></audio>
-      <audio id="sound-hf-get" src="/assets/audio/get.mp3" preload="none"></audio>
-      <audio id="sound-hf-i" src="/assets/audio/i.mp3" preload="none"></audio>
-      <audio id="sound-hf-is" src="/assets/audio/is.mp3" preload="none"></audio>
-      <audio id="sound-hf-on" src="/assets/audio/on.mp3" preload="none"></audio>
-      <audio id="sound-hf-see" src="/assets/audio/see.mp3" preload="none"></audio>
-      <audio id="sound-hf-the" src="/assets/audio/the.mp3" preload="none"></audio>
     </section>
   </main>
 
