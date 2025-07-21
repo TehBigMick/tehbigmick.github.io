@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read the Book | I Can Hop</title>
+  <!-- Site-wide styles -->
+  <link rel="stylesheet" href="/styles/main.css">
+  <!-- Learn section styles -->
+  <link rel="stylesheet" href="/styles/learn.css">
+  <!-- Decodable section overrides -->
+  <link rel="stylesheet" href="/styles/decodable.css">
+
+  <!-- Turn.js & jQuery for page flip -->
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+sV0XV+6wQw5Ii4GQUd8bWfl8j04z3tF6mX3BY4="
+    crossorigin="anonymous"
+    defer
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"
+    defer
+  ></script>
+</head>
+<body>
+  <!-- Header/Nav -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">CVC Phonics</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/learn/index.html">Learning Activities</a></li>
+          <li><a href="/learn/decodable/index.html">Decodable Books</a></li>
+          <li><a href="menu.html" class="active">I Can Hop</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Reader -->
+  <main class="decodable-read container">
+    <h1>I Can Hop - Read the Book</h1>
+    <div id="flipbook">
+      <!-- Pages will be generated and lazy-loaded by JS -->
+    </div>
+    <div class="flip-controls">
+      <button id="prev" class="flip-btn">← Prev</button>
+      <button id="next" class="flip-btn">Next →</button>
+    </div>
+
+    <noscript>
+      <p class="no-js-warning">JavaScript is required to view this book. Please enable it in your browser settings.</p>
+    </noscript>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 CVC Phonics. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Page-flip initialization -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // List your WebP page assets here in order:
+      const pages = [
+        '/assets/images/book12/page1.webp',
+        '/assets/images/book12/page2.webp',
+        '/assets/images/book12/page3.webp',
+        '/assets/images/book12/page4.webp',
+        // … add paths for all pages
+      ];
+
+      const $flipbook = $('#flipbook');
+      pages.forEach((src, i) => {
+        // Create an empty page container
+        $('<div>')
+          .attr('data-page', i + 1)
+          .appendTo($flipbook);
+      });
+
+      // Initialize Turn.js
+      $flipbook.turn({
+        width: 600,
+        height: 800,
+        autoCenter: true,
+        pages: pages.length,
+        when: {
+          turning: function(e, page) {
+            const pageDiv = $(this).find(`[data-page="${page}"]`);
+            if (!pageDiv.data('loaded')) {
+              $('<img>')
+                .attr('src', pages[page - 1])
+                .on('load', () => pageDiv.data('loaded', true))
+                .appendTo(pageDiv);
+            }
+          }
+        }
+      });
+
+      // Bind controls
+      $('#prev').on('click', () => $flipbook.turn('previous'));
+      $('#next').on('click', () => $flipbook.turn('next'));
+    });
+  </script>
+
+  <!-- Global scripts -->
+  <script src="/scripts/main.js"></script>
+</body>
+</html>
