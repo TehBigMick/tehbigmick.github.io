@@ -169,3 +169,22 @@ section table td {
 .high-frequency table td button {
   width: 100%;
 }
+
+/* Give each pre-learning section its own card */
+.decodable-prelearning section {
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Make every table cell pop with its own box */
+.decodable-prelearning section table td {
+  border: 2px solid var(--color-border);
+}
+
+/* Ensure the sound-buttons still look good inside their cells */
+.sound-btn {
+  border: 2px solid var(--color-border);
+  background: #fff;
+}
