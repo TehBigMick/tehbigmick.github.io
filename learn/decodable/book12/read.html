@@ -12,54 +12,43 @@
   <!-- Decodable section overrides -->
   <link rel="stylesheet" href="/styles/decodable.css">
 
-  <!-- Turn.js & jQuery for page flip -->
-  <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+sV0XV+6wQw5Ii4GQUd8bWfl8j04z3tF6mX3BY4="
-    crossorigin="anonymous"
-    defer
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"
-    defer
-  ></script>
+  <!-- Turn.js & jQuery for page flip (no integrity check) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js" defer></script>
 </head>
 <body>
-  <!-- Header/Nav -->
-  <header class="site-header">
+  <!-- Header matching Learn style -->
+  <header class="site-header learn-header">
     <div class="container">
-      <a href="/" class="logo">CVC Phonics</a>
+      <a href="/learn/index.html" class="logo">
+        <img src="/assets/logo-learn.webp" alt="Michael's Phonics Hub – Learning">
+      </a>
       <nav class="main-nav">
         <ul>
           <li><a href="/learn/index.html">Learning Activities</a></li>
           <li><a href="/learn/decodable/index.html">Decodable Books</a></li>
-          <li><a href="menu.html" class="active">I Can Hop</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- Breadcrumb Buttons -->
+  <div class="container breadcrumb-buttons" style="margin:1rem auto; max-width:400px;">
+    <a href="/learn/index.html" class="btn">Learning Activities</a>
+    <a href="/learn/decodable/index.html" class="btn">Decodable Books</a>
+  </div>
+
   <!-- Main Reader -->
   <main class="decodable-read container">
     <h1>I Can Hop - Read the Book</h1>
-    <div id="flipbook">
-      <!-- Pages will be generated and lazy-loaded by JS -->
-    </div>
+    <div id="flipbook"></div>
     <div class="flip-controls">
       <button id="prev" class="flip-btn">← Prev</button>
       <button id="next" class="flip-btn">Next →</button>
     </div>
 
-    <!-- Fallback for non-JS users -->
     <noscript>
-      <p class="no-js-warning">It looks like JavaScript is disabled. View all pages below:</p>
-      <div class="no-js-book">
-        <div class="book-page"><img src="/assets/images/book12/page1.webp" alt="I Can Hop - Page 1"></div>
-        <div class="book-page"><img src="/assets/images/book12/page2.webp" alt="I Can Hop - Page 2"></div>
-        <div class="book-page"><img src="/assets/images/book12/page3.webp" alt="I Can Hop - Page 3"></div>
-        <div class="book-page"><img src="/assets/images/book12/page4.webp" alt="I Can Hop - Page 4"></div>
-        <!-- Add more .book-page blocks for additional pages -->
-      </div>
+      <p class="no-js-warning">JavaScript is required to view this book. Please enable it in your browser settings.</p>
     </noscript>
   </main>
 
@@ -73,24 +62,19 @@
   <!-- Page-flip initialization -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // List your WebP page assets here in order:
       const pages = [
         '/assets/images/book12/page1.webp',
         '/assets/images/book12/page2.webp',
         '/assets/images/book12/page3.webp',
-        '/assets/images/book12/page4.webp',
-        // … add paths for all pages
+        '/assets/images/book12/page4.webp'
+        // add other pages as needed
       ];
 
       const $flipbook = $('#flipbook');
       pages.forEach((src, i) => {
-        // Create an empty page container
-        $('<div>')
-          .attr('data-page', i + 1)
-          .appendTo($flipbook);
+        $('<div>').attr('data-page', i + 1).appendTo($flipbook);
       });
 
-      // Initialize Turn.js
       $flipbook.turn({
         width: 600,
         height: 800,
@@ -100,16 +84,12 @@
           turning: function(e, page) {
             const pageDiv = $(this).find(`[data-page="${page}"]`);
             if (!pageDiv.data('loaded')) {
-              $('<img>')
-                .attr('src', pages[page - 1])
-                .on('load', () => pageDiv.data('loaded', true))
-                .appendTo(pageDiv);
+              $('<img>').attr('src', pages[page - 1]).on('load', () => pageDiv.data('loaded', true)).appendTo(pageDiv);
             }
           }
         }
       });
 
-      // Bind controls
       $('#prev').on('click', () => $flipbook.turn('previous'));
       $('#next').on('click', () => $flipbook.turn('next'));
     });
