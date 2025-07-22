@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read | A Fat Hat</title>
+  <link rel="stylesheet" href="../../../styles/main.css">
+  <link rel="stylesheet" href="../../../styles/learn.css">
+  <link rel="stylesheet" href="../../../styles/decodable.css">
+  <style>
+    .book-viewer {
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .book-image {
+      width: 100%;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .nav-bubbles {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .nav-bubbles button {
+      border: none;
+      background: #7fc8f8;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .nav-bubbles button:hover {
+      background: #5aaee6;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header learn-header">
+    <div class="container">
+      <a href="../../../learn/index.html" class="logo">
+        <img src="../../../assets/logo-learn.webp" alt="Michael's Phonics Hub – Learning">
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../../../learn/index.html">Learning Activities</a></li>
+          <li><a href="../../index.html" class="active">Decodable Books</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="book-viewer">
+    <h1>Read the Book: A Fat Hat</h1>
+    <img id="bookPage" class="book-image" src="../../../assets/images/book13/page1.webp" alt="Book Page">
+
+    <div class="nav-bubbles">
+      <button onclick="prevPage()">⏮️ Previous</button>
+      <button onclick="nextPage()">Next ⏭️</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 CVC Phonics. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const totalPages = 9;
+    let currentPage = 1;
+    const pageImg = document.getElementById('bookPage');
+
+    function updatePage() {
+      pageImg.src = `../../../assets/images/book13/page${currentPage}.webp`;
+      pageImg.alt = `Book Page ${currentPage}`;
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updatePage();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePage();
+      }
+    }
+  </script>
+</body>
+</html>
