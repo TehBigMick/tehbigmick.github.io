@@ -8,6 +8,37 @@
   <link rel="stylesheet" href="../../../styles/main.css">
   <link rel="stylesheet" href="../../../styles/learn.css">
   <link rel="stylesheet" href="../../../styles/decodable.css">
+  <style>
+    .section-box {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .sound-btn {
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      margin: 0.3rem;
+      border: 2px solid #444;
+      border-radius: 6px;
+      background-color: #f7f7f7;
+      cursor: pointer;
+    }
+    h1.title-centered {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #4e9cff;
+      margin-top: 2rem;
+    }
+    h2, h3 {
+      margin-top: 1rem;
+    }
+    table {
+      margin: auto;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header learn-header">
@@ -24,16 +55,11 @@
     </div>
   </header>
 
-  <div class="container breadcrumb-buttons" style="margin:1rem auto; max-width:400px;">
-    <a href="../../../learn/index.html" class="btn">Learning Activities</a>
-    <a href="../../index.html" class="btn active">Decodable Books</a>
-  </div>
-
   <main class="decodable-prelearning container">
-    <h1>Pre-Learning: A Fat Hat</h1>
+    <h1 class="title-centered">A Fat Hat</h1>
 
     <!-- 1. Letter Sounds -->
-    <section class="phoneme-table">
+    <section class="phoneme-table section-box">
       <h2>Letter Sounds</h2>
       <table>
         <tr>
@@ -51,13 +77,12 @@
         <tr>
           <td><button class="sound-btn" data-sound="d">d</button></td>
           <td><button class="sound-btn" data-sound="h">h</button></td>
-          <td colspan="2"></td>
         </tr>
       </table>
     </section>
 
     <!-- 2. Blending -->
-    <section class="blending">
+    <section class="blending section-box">
       <h2>Blending</h2>
       <div class="blending-families">
         <div class="blending-family">
@@ -88,7 +113,7 @@
     </section>
 
     <!-- 3. High-Frequency Words -->
-    <section class="high-frequency">
+    <section class="high-frequency section-box">
       <h2>High-Frequency Words</h2>
       <table>
         <tr>
@@ -119,7 +144,6 @@
           <td><button class="sound-btn">to</button></td>
           <td><button class="sound-btn">it</button></td>
           <td><button class="sound-btn">cannot</button></td>
-          <td></td>
         </tr>
       </table>
     </section>
