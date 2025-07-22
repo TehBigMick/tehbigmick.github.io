@@ -9,13 +9,35 @@
   <link rel="stylesheet" href="../../../styles/learn.css">
   <link rel="stylesheet" href="../../../styles/decodable.css">
   <style>
-    .book-viewer {
-      max-width: 600px;
-      margin: 2rem auto;
-      text-align: center;
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f5f8fc;
+      font-family: sans-serif;
+    }
+    main.book-viewer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    .book-poster {
+      max-width: 200px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    h1.title-bubble {
+      display: inline-block;
+      background: #4e9cff;
+      color: white;
+      padding: 0.6rem 2rem;
+      font-size: 2rem;
+      border-radius: 999px;
+      margin-bottom: 2rem;
     }
     .book-image {
       width: 100%;
+      max-width: 600px;
       height: auto;
       border: 2px solid #ccc;
       border-radius: 8px;
@@ -40,30 +62,46 @@
     .nav-bubbles button:hover {
       background: #5aaee6;
     }
+    .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 3rem 0 2rem;
+    }
+    .bottom-nav a {
+      background: #7fc8f8;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    .bottom-nav a:hover {
+      background: #5aaee6;
+    }
   </style>
 </head>
 <body>
-  <header class="site-header learn-header">
-    <div class="container">
-      <a href="../../../learn/index.html" class="logo">
-        <img src="../../../assets/logo-learn.webp" alt="Michael's Phonics Hub – Learning">
-      </a>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="../../../learn/index.html">Learning Activities</a></li>
-          <li><a href="../../index.html" class="active">Decodable Books</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
   <main class="book-viewer">
-    <h1>Read the Book: A Fat Hat</h1>
+    <!-- Poster and Title -->
+    <img src="../../../assets/images/decodable/book13/poster.webp" alt="A Fat Hat Cover" class="book-poster">
+    <h1 class="title-bubble">A Fat Hat</h1>
+
+    <!-- Book Page Image -->
     <img id="bookPage" class="book-image" src="../../../assets/images/book13/page1.webp" alt="Book Page">
 
+    <!-- Page Nav Buttons -->
     <div class="nav-bubbles">
       <button onclick="prevPage()">⏮️ Previous</button>
       <button onclick="nextPage()">Next ⏭️</button>
+    </div>
+
+    <!-- Bottom Navigation Buttons -->
+    <div class="bottom-nav">
+      <a href="../../../index.html">🏠 Home</a>
+      <a href="../../../learn/index.html">📘 Learning Activities</a>
     </div>
   </main>
 
