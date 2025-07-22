@@ -26,14 +26,39 @@
       background-color: #f7f7f7;
       cursor: pointer;
     }
-    h1.title-centered {
+    .title-bubble {
+      display: inline-block;
+      background: #4e9cff;
+      color: white;
+      padding: 0.6rem 2rem;
+      font-size: 2rem;
+      border-radius: 50px;
+      margin: 1rem auto 2rem;
       text-align: center;
-      font-size: 2.5rem;
-      color: #4e9cff;
-      margin-top: 2rem;
     }
-    h2, h3 {
-      margin-top: 1rem;
+    .book-poster {
+      display: block;
+      margin: 1rem auto 0;
+      max-width: 200px;
+      border-radius: 12px;
+    }
+    .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 3rem 0 2rem;
+    }
+    .bottom-nav a {
+      background: #7fc8f8;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .bottom-nav a:hover {
+      background: #5aaee6;
     }
     table {
       margin: auto;
@@ -41,22 +66,12 @@
   </style>
 </head>
 <body>
-  <header class="site-header learn-header">
-    <div class="container">
-      <a href="../../../learn/index.html" class="logo">
-        <img src="../../../assets/logo-learn.webp" alt="Michael's Phonics Hub – Learning">
-      </a>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="../../../learn/index.html">Learning Activities</a></li>
-          <li><a href="../../index.html" class="active">Decodable Books</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
   <main class="decodable-prelearning container">
-    <h1 class="title-centered">A Fat Hat</h1>
+    <!-- Poster Image -->
+    <img src="../../../assets/images/decodable/book13/poster.webp" alt="A Fat Hat Cover" class="book-poster">
+
+    <!-- Title Bubble -->
+    <h1 class="title-bubble">A Fat Hat</h1>
 
     <!-- 1. Letter Sounds -->
     <section class="phoneme-table section-box">
@@ -147,6 +162,12 @@
         </tr>
       </table>
     </section>
+
+    <!-- Bottom Navigation Buttons -->
+    <div class="bottom-nav">
+      <a href="../../../index.html">🏠 Home</a>
+      <a href="../../../learn/index.html">📘 Learning Activities</a>
+    </div>
   </main>
 
   <footer class="site-footer">
